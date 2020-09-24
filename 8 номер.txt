@@ -1,4 +1,0 @@
-﻿1>------ Build started: Project: Домашнее Задание, Configuration: Debug Win32 ------
-1>8.cpp
-1>Домашнее Задание.vcxproj -> C:\Users\Дмитрий\source\repos\Домашнее Задание\Debug\Домашнее Задание.exe
-========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
