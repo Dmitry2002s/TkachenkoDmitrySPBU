@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
 	int x = 0;
 
 	x = k * (k + a + 1) + a + 1;
-
+	 
 	cout << x << endl;
 
 
