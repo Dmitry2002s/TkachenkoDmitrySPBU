@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 	cin >> p;
 	p--;
 	c = a << p;
-	c = c - 1;
+	c = ~(-c);
 	cout << c;
 
 
