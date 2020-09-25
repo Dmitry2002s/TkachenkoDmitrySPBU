@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	int c = 1;
 
 	cin >> p;
-	while (n < p)
+	while (n <= (p/2) )
 	{
 		k = p % n;
 		n++;

@@ -22,13 +22,24 @@ int main(int argc, char* argv[])
 			{
 				if (p == a + b + c)
 				{
-					k++;
+					for (d = 0; d < 10;d++)
+					{
+						for (k = 0; k < 10;k++)
+						{
+							for (m = 0; m < 10;m++)
+								if (p == d + m + k)
+								{
+									cout << a << b << c << d << k << m;
+									cout << " "; 
+								}
+							
+
+						}
+					}
 				}
 			}
 		}
 	}
-	k = k * k;
-	cout << k;
 
 	return EXIT_SUCCESS;
 }
