@@ -45,7 +45,7 @@ void printArray(int* arr, int cou, int cap)
 	cout << "{";
 	for (int i = 0; i < cou; ++i)
 	{
-		cout << arr[i] ;
+		cout << arr[i] << (i != cou - 1 ? ", " : "");
 	}
 	cout << "}" << endl;
 }
