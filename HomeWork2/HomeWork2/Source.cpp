@@ -66,18 +66,19 @@ int main(int argc, char* argv[])
 				cin >> choice;
 				switch (choice)
 				{
-				case 1: cout << "Ты-писька!" << endl;
+				case 1: cout << "!" << endl;
 
 
 					break;
 				case 2:
-					sumArray(arr,cap);
+					
 					break;
 				case 3:
 					break;
 				case 4:
 					break;
 				case 5:
+					sumArray(arr, cap);
 					cout << "сумма равна";
 					break;
 				case 0:
