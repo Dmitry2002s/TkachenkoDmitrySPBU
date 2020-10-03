@@ -3,6 +3,16 @@
 using namespace std;
 int a = 0;
 int x = 0;
+void arr(int*arr, )
+{
+	int* arr = new int[10];
+	for (int i = 0; i< count; i++)
+	{
+		temp[i] = a[i];
+		delete a[];
+		a = temp;
+	}
+}
 void printArray(int* arr, int count, int cap)
 {
 	cout << "[" << count << "/" << cap << "]";
@@ -40,6 +50,10 @@ void expandArray(int* arr, int cap)
 }
 int sumArray(int*& arr, int& length)
 { 
+	int cap = 10;
+	int* a = new int[cap];
+	cout << "Введите элементы массива, завершите ввод элементом '0'v\n\n";
+	int count = 0;
 	int result = 0;
 	for (int i = 0; i < length; ++i)
 	{
@@ -48,11 +62,12 @@ int sumArray(int*& arr, int& length)
 	}
 	return result;
 }
+
 int main(int argc, char* argv[])
 {
-	while(true)
+	while (true)
 	{
-		
+
 		setlocale(LC_ALL, "Russian");
 		int choice = -1;
 
@@ -61,35 +76,34 @@ int main(int argc, char* argv[])
 			int a = 0;
 			system("cls");
 			printMenu();
-			void check(int* arr, int length,int cap);
+			cin >> choice;
+			switch (choice)
 			{
-				cin >> choice;
-				switch (choice)
-				{
-				case 1: cout << "!" << endl;
+			case 1: cout << "!" << endl;
 
 
-					break;
-				case 2:
-					
-					break;
-				case 3:
-					break;
-				case 4:
-					break;
-				case 5:
-					sumArray(arr, cap);
-					cout << "сумма равна";
-					break;
-				case 0:
-					exit(0);
-					break;
+				break;
+			case 2:
 
-				}
-				cout << "Нажмите любую клавишу,чтобы продолжить" << endl;
-				cin >> a;
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				cout << "сумма равна";
+				break;
+			case 0:
+				exit(0);
+				break;
+
 			}
+
+			cout << "Нажмите любую клавишу,чтобы продолжить" << endl;
+			cin >> a;
 		}
+
+
+		return 0;
 	}
-	return 0;
 }

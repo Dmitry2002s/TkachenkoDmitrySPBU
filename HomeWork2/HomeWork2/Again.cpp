@@ -23,30 +23,17 @@ void expandArray(int*& arr, int& capacity)
         {
             temp[i] = arr[i];
         }
-    capacity = newCapacity;
+  
     delete[] arr;
         arr = temp;
+        capacity = newCapacity;
 }
 
-void addElement(int*& arr, int& count, int& cap)
+void addElement(int*& arr, int& count, int& cap, int& capacity, int x)
 {
-    int x = 0; 
-    cin >> x; 
-    if (x == 0)
-    {
-        return;
-    }
     if (count = cap)
     {
-        cap *= 2;
-        int* temp = new int[cap];
-        for (int i = 0; i < count, i++;)
-        {
-            temp[i] = arr[i];
-
-        }
-        delete[] arr;
-        arr = temp;
+        expandArray(*&arr, capacity);
     }
     arr[count] = x;
     count++; 
@@ -79,18 +66,20 @@ int sumArray(int* arr, int lenght)
 }
 
 
-void processChoice(int*& arr, int& count, int& cap, int choice)
+void processChoice(int*& arr, int& count, int cap, int choice,int& capacity)
 {
     switch (choice)
     {
     case 1:
     {
-        addElement(*&arr, &count, &cap)
+        int x = 0; 
+        cin >> x; 
+        addElement(*&arr, count, cap, capacity);
     }
         break;
     case 2:
     {
-        printArray;
+        printArray(arr, count, cap) ;
     }
         break;
     }
@@ -110,7 +99,7 @@ int main()
         system("cls");
         printMenu();
         cin >> choice;
-        processChoice(arr, count, capacity, choice);
+        processChoice(arr, count, capacity, choice, cap);
         
     } while (choice != 0);
     delete[] arr;
