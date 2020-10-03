@@ -15,25 +15,26 @@ void printMenu()
     cout << "6 - Вывести массив в обратном порядке" << endl; 
 }
 
-void expandArray(int*& arr, int& capacity)
+void expandArray(int*& arr, int& cap)
 {
-    int newCapacity = capacity * 2; 
-    int* temp = new int[capacity];
-        for (int i = 0; i < capacity; i++)
+    int newCapacity = cap * 2; 
+    int* temp = new int[cap];
+        for (int i = 0; i < cap; i++)
         {
             temp[i] = arr[i];
         }
   
     delete[] arr;
         arr = temp;
-        capacity = newCapacity;
+        cap = newCapacity;
 }
 
-void addElement(int*& arr, int& count, int& cap, int& capacity, int x)
+void addElement(int*& arr, int& count, int& cap, int x)
 {
+    
     if (count = cap)
     {
-        expandArray(*&arr, capacity);
+        expandArray(*&arr, cap);
     }
     arr[count] = x;
     count++; 
@@ -52,6 +53,9 @@ void printArray(int* arr, int count,int cap)
     {
         cout << arr[i] << (i != count - 1 ? ", " : "");
     }
+    cout << "Введите любую клавишу,чтобы вернуться в главное меню" << endl; 
+        int p = 0;
+        cin >> p;
 }
 
 int sumArray(int* arr, int lenght)
@@ -66,15 +70,16 @@ int sumArray(int* arr, int lenght)
 }
 
 
-void processChoice(int*& arr, int& count, int cap, int choice,int& capacity)
+void processChoice(int*& arr, int& count, int cap, int choice)
 {
     switch (choice)
     {
     case 1:
     {
-        int x = 0; 
+        int x = 0;
+        cout << "введите значение" << endl; 
         cin >> x; 
-        addElement(*&arr, count, cap, capacity);
+        addElement(*&arr, count, cap, x);
     }
         break;
     case 2:
@@ -99,7 +104,7 @@ int main()
         system("cls");
         printMenu();
         cin >> choice;
-        processChoice(arr, count, capacity, choice, cap);
+        processChoice(arr, count, capacity, choice);
         
     } while (choice != 0);
     delete[] arr;
