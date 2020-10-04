@@ -13,6 +13,8 @@ void printMenu()
     cout << "5 - Посчитать сумму элементов массива" << endl;
     cout << "6 - Вывести массив в обратном порядке" << endl;
     cout << "7 - Добавить n случайных элементов" << endl;
+    cout << "8 - Развернуть массив" << endl; 
+    cout << "9 - Поменять местами элементы массива в парах " << endl; 
 }
 
 void expandArray(int*& arr, int& cap)
@@ -68,12 +70,77 @@ int sumArray(int* arr, int lenght)
     return result;
 }
 
-void inversion(int cap; int* arr)
+void inversion(int cap, int* arr,int count )
+{
+    int temp = 0;
+   
+    for (int i = 0;i < (count / 2); i++)
+    {
+        temp = arr[i];
+        arr[i] = arr[count - 1 - i];
+        arr[count - 1 - i] = temp;
+
+    }
+    
+}
+int minElement (int count, int* arr)
+{
+    int i = 0;
+    int p = 0;
+    for (i = 0; i < count;i++)
+    {
+
+        if (arr[i] < arr[p])
+        {
+            p = i;
+
+        }
+
+    }
+    p = arr[p];
+   return p;
+}
+int maxElementN(int count, int* arr)
+{
+    int i = 0; 
+    int p = 0;
+    for (i = 0; i < count;i++)
+    {
+
+        if (arr[p] < arr[i])
+        {
+            p = i;
+            
+        }
+       
+    }
+    p += 1;
+   return p;
+}
+void duoinversion(int* arr, int count)
 {
 
-    for (int i = 0;i < (cap / 2); i++)
-        arr[i] = arr[cap - i];
+    int temp = 0;
 
+    for (int i = 0;i < count; i+=2)
+    {
+        if ((i+1) == count)
+        {
+            break;
+       }
+        temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+
+    }
+
+}
+void shift(int* arr, int count)
+{
+    for (int i = 0; i < count;i++)
+    {
+        arr[i] >> 1;
+    }
 }
 
 void processChoice(int*& arr, int& count, int& cap, int choice)
@@ -96,10 +163,35 @@ void processChoice(int*& arr, int& count, int& cap, int choice)
     }
     break;
        
+    case 3 :
+    { 
+        int p = 0;
+        p=maxElementN(count, arr);
+
+        cout << "Номер Максимального элемента равен " << "{" << p << "}" << endl;
+        system("pause");
+    }
+    break;
+    case 4:
+    {
+        int p = 0; 
+        p = minElement(count, arr);
+            cout << "Минимальный элемент равен"<< endl << "{" << p << "}" << endl; 
+            system("pause");
+    }
+    break; 
     case 5:
     {
        
-        cout << "Сумма массива равна= " << sumArray(arr, cap) << endl; 
+        cout << "Сумма массива равна= " << sumArray(arr, count) << endl; 
+        system("pause");
+    }
+    break;
+    case 6:
+    {
+        inversion(cap, arr,count);
+        printArray(arr, count, cap);
+        inversion(cap, arr, count); 
         system("pause");
     }
     break;
@@ -117,8 +209,20 @@ void processChoice(int*& arr, int& count, int& cap, int choice)
             addRandomElements(arr, count, cap, n, min, max);
     }
     break;
+    case 8: 
+    {
+        inversion(cap, arr, count);
     }
-   
+    break;
+    case 9: 
+   {
+       duoinversion(arr, count);
+       cout << "Элементы поменяны местами в парах!" << endl; 
+       system("pause");
+   }
+    }
+    
+    break;
 
 }
 
@@ -131,7 +235,9 @@ int main()
     int capacity = 10;
     int count = 0;
     int* arr = new int[capacity];
+    int k = 0; 
     do
+ 
     {
         system("cls");
         printMenu();
