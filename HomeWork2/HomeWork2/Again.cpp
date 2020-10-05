@@ -12,9 +12,7 @@ void printMenu()
     cout << "4 - Найти минимальный элемент массива" << endl;
     cout << "5 - Посчитать сумму элементов массива" << endl;
     cout << "6 - Вывести массив в обратном порядке" << endl;
-    cout << "7 - Добавить n случайных элементов" << endl;
-    cout << "8 - Развернуть массив" << endl; 
-    cout << "9 - Поменять местами элементы массива в парах " << endl; 
+   
 }
 
 void expandArray(int*& arr, int& cap)
@@ -135,13 +133,7 @@ void duoinversion(int* arr, int count)
     }
 
 }
-void shift(int* arr, int count)
-{
-    for (int i = 0; i < count;i++)
-    {
-        arr[i] >> 1;
-    }
-}
+
 
 void processChoice(int*& arr, int& count, int& cap, int choice)
 {
@@ -150,23 +142,23 @@ void processChoice(int*& arr, int& count, int& cap, int choice)
     case 1:
     {
         int x = 0;
-        cout << "введите значение" << endl; 
-        cin >> x; 
+        cout << "введите значение" << endl;
+        cin >> x;
         addElement(arr, count, cap, x);
     }
-        break;
+    break;
     case 2:
     {
-        printArray(arr, count, cap) ;
+        printArray(arr, count, cap);
         system("pause");
 
     }
     break;
-       
-    case 3 :
-    { 
+
+    case 3:
+    {
         int p = 0;
-        p=maxElementN(count, arr);
+        p = maxElementN(count, arr);
 
         cout << "Номер Максимального элемента равен " << "{" << p << "}" << endl;
         system("pause");
@@ -174,58 +166,31 @@ void processChoice(int*& arr, int& count, int& cap, int choice)
     break;
     case 4:
     {
-        int p = 0; 
+        int p = 0;
         p = minElement(count, arr);
-            cout << "Минимальный элемент равен"<< endl << "{" << p << "}" << endl; 
-            system("pause");
+        cout << "Минимальный элемент равен" << endl << "{" << p << "}" << endl;
+        system("pause");
     }
-    break; 
+    break;
     case 5:
     {
-       
-        cout << "Сумма массива равна= " << sumArray(arr, count) << endl; 
+
+        cout << "Сумма массива равна= " << sumArray(arr, count) << endl;
         system("pause");
     }
     break;
     case 6:
     {
-        inversion(cap, arr,count);
+        inversion(cap, arr, count);
         printArray(arr, count, cap);
-        inversion(cap, arr, count); 
+        inversion(cap, arr, count);
         system("pause");
     }
     break;
-    case 7:
-    {
-        int n = 0; 
-        cout << "n=";
-        cin >> n; 
-        int min = 0; 
-        cout << "min=";
-            cin >> min;
-            int max = 0; 
-            cout << "max=";
-            cin >> max; 
-            addRandomElements(arr, count, cap, n, min, max);
-    }
-    break;
-    case 8: 
-    {
-        inversion(cap, arr, count);
-    }
-    break;
-    case 9: 
-   {
-       duoinversion(arr, count);
-       cout << "Элементы поменяны местами в парах!" << endl; 
-       system("pause");
-   }
-    }
-    
-    break;
 
+
+    }
 }
-
 
 
 int main()
