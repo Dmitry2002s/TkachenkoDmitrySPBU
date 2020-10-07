@@ -135,10 +135,15 @@ void duoinversion(int* arr, int count)
 }
 void shift(int* arr, int count)
 {
-    for (int i = 0; i < count;i++)
+    int f = 0; 
+    f = arr[count-1];
+    for (int i = count-1; i >= 0;--i)
     {
-        arr[i]=arr[i] >> 1;
+        
+        arr[i+1] = arr[i];
+        
     }
+    arr[0] = f;
 }
 void n_turn(int count, int* arr,int k)
 {
