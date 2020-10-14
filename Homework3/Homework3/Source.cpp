@@ -59,7 +59,7 @@ void expandArray(int*& arr)
 
 void addElement(int*& arr, int element)
 {
-	if (*(arr - 2) == *(arr - 1))
+	if (*(arr - 2) >= *(arr - 1))
 	{
 		expandArray(arr);
 	}
@@ -94,17 +94,16 @@ void printArray(int* arr)
 /// <returns>индекс первого найденного элемента или -1, если элемент не найден</returns>
 int search(int capacity, int* arr, int element)
 {
-	cout << "{"; 
-	for (int i = 0; i < capacity;i++)
+	
+	int k = 0; 
+	for (int i = 0; i <= *(arr-2);i++)
 	{
-		if (arr[i] == element)
+		if (*(arr + i) == element)
 		{
-			cout << i << ", ";
+			k= i; 
 		}
 	}
-	cout << "}" << endl; 
-	cout << "элементы отображены \n"; 
-	return 0;
+	return k; 
 }
 
 /// <summary>
@@ -115,11 +114,13 @@ int search(int capacity, int* arr, int element)
 
 void add(int*& arr, int* addedArr)
 {
-	for (int i = 0; i < (arr[-1] + addedArr[-2]);i++)
+	for (int i = 0; i < *(arr-1) + *(addedArr-2);i++)
 	{
-		expandArray(arr);
-		arr[arr[-2] + i] = addedArr[i];
-		
+		if (*(arr - 1) < *((arr - 2) + *(addedArr - 2)))
+		{
+			expandArray(arr);
+		}
+		*(arr + *(arr - 2) + i) = *(addedArr + i);
 
 		
 	}
@@ -155,11 +156,10 @@ int* unify(int* a, int* b)
 	{
 		temp[2 * i + 1] = b[i];
 	}
-	a = temp;
-	printArray(temp);
+	return temp;
 	temp -= 2;
 	delete[] temp;
-	return 0;
+	
 	/// <summary>
 	/// int* temp = initArray(2 * (*(arr - 1)));
 	///for (int i = 0; i < *(arr - 1); ++i)
@@ -193,7 +193,7 @@ int extract(int* a, int index)
 		*(a+i) = *(a + i - 1);
 	}
 	
-	return 0;
+	return index;
 }
 
 /// <summary>
@@ -205,6 +205,18 @@ int extract(int* a, int index)
 /// <returns>Возвращается 0, если все хорошо и индекс был корректен, 1 - если индес был некорректен</returns>
 int insert(int*& a, int index, int element)
 {
+	*(a - 2) += 1;
+	if (*(a - 2) == *(a - 1))
+	{
+		expandArray(a);
+	}
+	for (int i = (*(a-2)-index); i >= 1; i--)
+
+	{
+		*(a + index + i + 1) = *(index + a + i);
+
+	}
+	*(a + index) = element;
 	return 0;
 }
 
@@ -374,17 +386,20 @@ void processChoice(int*& arr1, int*& arr2, int*& addedArray, int choice)
 		{
 		case 1:
 		{
-			search(arr1[-1], arr1, x);
+			
+			cout << "индекс элемента равен [" << search(arr1[-1], arr1, x) << "]";
 			break;
 		}
 		case 2:
 		{
-			search(arr2[-1], arr2, x);
+			
+			cout << "индекс элемента равен [" << search(arr2[-1], arr2, x) << "]";
 			break;
 		}
 		case 3:
 		{
-			search(addedArray[-1], addedArray, x);
+			
+			cout << "индекс элемента равен ["<< search(addedArray[-1], addedArray, x)<< "]";
 			break;
 		}
 		}
@@ -399,7 +414,8 @@ void processChoice(int*& arr1, int*& arr2, int*& addedArray, int choice)
 	}
 	case 6:
 	{
-		unify(arr1, arr2);
+		;
+		printArray(unify(arr1, arr2));
 		cout << "Объединено!" << endl;
 		break;
 	}
