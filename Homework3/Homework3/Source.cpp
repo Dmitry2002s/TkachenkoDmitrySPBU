@@ -57,24 +57,7 @@ void expandArray(int*& arr)
 	arr = temp;
 }
 
-void addElement(int*& arr, int element)
-{
-	if (*(arr - 2) >= *(arr - 1))
-	{
-		expandArray(arr);
-	}
-	*(arr + *(arr - 2)) = element;
-	++(*(arr - 2));
 
-}
-
-void addRandomElements(int*& arr, int n, int min, int max)
-{
-	for (int i = 0; i < n; ++i)
-	{
-		addElement(arr, rand() % (max - min + 1) + min);
-	}
-}
 
 void printArray(int* arr)
 {
@@ -94,17 +77,30 @@ void printArray(int* arr)
 /// <returns>индекс первого найденного элемента или -1, если элемент не найден</returns>
 int search(int capacity, int* arr, int element)
 {
-	
-	int k = 0; 
-	for (int i = 0; i <= *(arr-2);i++)
+
+	int k = 0;
+	for (int i = 0; i <= *(arr - 2);i++)
 	{
 		if (*(arr + i) == element)
 		{
-			k= i; 
+			k = i;
 		}
 	}
-	return k; 
+	return k;
 }
+
+
+void addElement(int*& arr, int element)
+{
+	if (*(arr - 2) >= *(arr - 1))
+	{
+		expandArray(arr);
+	}
+	*(arr + *(arr - 2)) = element;
+	++(*(arr - 2));
+
+}
+
 
 /// <summary>
 /// Добавление массива элементов.
@@ -114,19 +110,25 @@ int search(int capacity, int* arr, int element)
 
 void add(int*& arr, int* addedArr)
 {
-	for (int i = 0; i < *(arr-1) + *(addedArr-2);i++)
+	if (*(arr - 1) < *(arr - 2)+ *(addedArr - 2)) 
 	{
-		if (*(arr - 1) < *((arr - 2) + *(addedArr - 2)))
-		{
-			expandArray(arr);
-		}
-		*(arr + *(arr - 2) + i) = *(addedArr + i);
-
+		expandArray(arr);
+	}
+	for (int i = 0; i < *(addedArr-2);i++)
+	{
+		
+		addElement(arr, *(addedArr + i));
 		
 	}
 	 
 }
-
+void addRandomElements(int*& arr, int n, int min, int max)
+{
+	for (int i = 0; i < n; ++i)
+	{
+		addElement(arr, rand() % (max - min + 1) + min);
+	}
+}
 /// <summary>
 /// Объединение двух массивов в один.
 /// {a1, a2, a3, a4, a5} {b1, b2, b3, b4, b5, b6, b7, b8}
