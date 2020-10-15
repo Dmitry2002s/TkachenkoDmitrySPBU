@@ -151,12 +151,12 @@ int* unify(int* a, int* b)
 	for (int i = 0; i <= *(a - 2);i++)
 
 	{
-		temp[2 * i] = a[i];
+		*(temp+ (2 * i)) = *(a+i);
 		
 	}
 	for (int i = 0; i <= *(b - 2);i++)
 	{
-		temp[2 * i + 1] = b[i];
+		*(temp+2 * i + 1) = *(b+i);
 	}
 	return temp;
 	temp -= 2;
