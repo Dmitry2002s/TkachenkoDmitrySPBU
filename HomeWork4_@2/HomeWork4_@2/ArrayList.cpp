@@ -165,8 +165,12 @@ bool ArrayList::remove(int index)
 	return false;
 }
 
-int ArrayList::swap(int index1, int index2)
+bool ArrayList::swap(int index1, int index2)
 {
+	if (indexincorrect)
+	{
+		return false; 
+	}
 	int p = 0; 
 	p = data[index1];
 	data[index1] = data[index2];

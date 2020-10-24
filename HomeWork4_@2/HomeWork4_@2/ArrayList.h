@@ -96,6 +96,6 @@ struct ArrayList {
 	/// <param name="index1">индекс первого элемента</param>
 	/// <param name="index2">индекс второго элемента</param>
 	/// <returns>true - все прошло хорошо, false - возникли проблемы</returns>
-	int swap(int index1, int index2);
+	bool swap(int index1, int index2);
 
 };
