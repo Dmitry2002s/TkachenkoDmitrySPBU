@@ -162,6 +162,7 @@ bool ArrayList::remove(int index)
 	{
 		data[i] = data[i + 1];
 	}
+	count--; 
 	return false;
 }
 
