@@ -2,7 +2,9 @@
 #include<clocale>
 #include<ctime>
 #include"Header.h"
-#include "Header.cpp"
+
+
+
 
 using namespace std;
 
@@ -19,22 +21,57 @@ void printMenu()
 	cout << "7 - Добавить несколько элементов, начиная с некоторой позиции" << endl;
 }
 
-
+void processChoice(ArrayList& a, int choice)
+{
+	switch (choice)
+	{
+	case 1:
+	{
+	}
+	break;
+	case 2:
+	{
+	}
+	break;
+	case 3:
+	{
+	}
+	break;
+	case 4:
+	{
+	}
+	break;
+	case 5:
+	{
+	}
+	break;
+	case 6:
+	{
+	}
+	break;
+	case 7:
+	{
+	}
+	break;
+	}
+}
 
 int main()
 {
-	::ArrayList;
+	int* a = ArrayList::initArray(count);
+	ArrayList;
 	srand(time(NULL));
 	setlocale(LC_ALL, "Russian");
-
+	int* a = ;
 	int choice = 0;
 	do
 	{
+		int a = 0; 
 		system("cls");
 		printMenu();
 		int choice = 0;
 		cin >> choice;
-		processChoice(choice);
+		processChoice(a,choice);
 		system("pause");
 	} while (choice != 0);
 

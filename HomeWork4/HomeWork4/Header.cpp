@@ -1,14 +1,8 @@
 #pragma once
-#include<iostream>
 #include "Header.h"
 using namespace std;
-struct Arraylist {
-	int count;
-	int capacity;
-	int* data;
-	
-};
-int* initArray(int capacity = 10)
+struct Arraylist ;
+int* ArrayList::initArray(int capacity)
 {
 	int* arr = new int[capacity + 2]{ 0 };
 	*(arr + 1) = capacity;
@@ -16,19 +10,19 @@ int* initArray(int capacity = 10)
 	return arr;
 	//return (new int[capacity + 2]{ 0, capacity }) + 2;
 }
-bool addtoindex(int element, int index, int* data, int count)
+bool ArrayList::addtoindex(int element, int index, int* data, int count)
 {
 	*(data + index) = element;
 	count++;
 	return false;
 }
-bool add(int element, int* data, int count)
+bool ArrayList::add(int element, int* data, int count)
 {
 	addtoindex(element, *(data + count), data, count);
 	return false; 
 }
 
-void print(int* arr)
+void ArrayList::print(int* arr)
 {
     for (int i = 0; i < *(arr - 2);i++)
 	{
@@ -39,7 +33,7 @@ void print(int* arr)
 
 
 
-bool expand(int* arr, int count)
+bool ArrayList::expand(int* arr, int count)
 {
 	int* temp = initArray(2 * (count));
 	for (int i = 0; i < (count);i++)
@@ -51,21 +45,27 @@ bool expand(int* arr, int count)
 	return false;
 }
 
-void deleteArray(int* arr)
+ArrayList::ArrayList(int capacity)
+{
+	
+}
+
+void ArrayList::deleteArray(int* arr)
 {
 
 	arr -= 2;
 	delete[] arr;
 	///delete[](arr - 2);
 }
-bool processChoice(int choice)
+void ArrayList::processChoice(int choice)
 {
 	switch (choice)
 	{
 	case 1:
-	{
+	   {
 		cout << "Пиписька\n";
+	
+	   }
 	}
-	}
-	return false;
+	
 }

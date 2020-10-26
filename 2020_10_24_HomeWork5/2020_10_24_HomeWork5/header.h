@@ -1,33 +1,30 @@
 #pragma once
-#include<iostream>
-
-using namespace std;
-
 struct ArrayList
 {
-
-	int count = 0;
-	int capacity = 10;
+private:
+	int count;
+	int capacity;
 	int* data;
+	char* str;
 
+public:
+	ArrayList(int capacity = 10) :count(0), capacity(capacity), data(new int[capacity]), str(nullptr) {};
 	
-	ArrayList(int capacity);
-
 	~ArrayList();
 
+private:
+	void expand();
+	int numLength(int number);
+	void addSymbolToStr(int& index, char symbol);
+	void addNumberToStr(int& index, int number);
 
-
-
-
-void deleteArray(int* arr);
-
-
-
-    int* initArray(int capacity = 10);
-
-	bool add(int element, int* data, int count);
-
-	bool expand(int* arr, int count);
+public:
+	/// <summary>
+	/// добавляет элемент в конец
+	/// </summary>
+	/// <param name="element">добавляемый элемент</param>
+	/// <returns></returns>
+	bool add(int element);
 
 	/// <summary>
 	/// добавляет элемент в позицию index, все последующие элементы сдвигаются на 1 вправо
@@ -35,7 +32,8 @@ void deleteArray(int* arr);
 	/// <param name="index">индекс вставляемого элемента</param>
 	/// <param name="element">вставляемый элемент</param>
 	/// <returns>true, если все прошло хорошо, false - если возникли проблемы</returns>
-	
+	bool add(int index, int element);
+
 	/// <summary>
 	/// добавляет все элементы из списка list в конец
 	/// </summary>
@@ -49,7 +47,8 @@ void deleteArray(int* arr);
 	/// </summary>
 	/// <param name="list">добавляемый список</param>
 	/// <returns>true, если получилось добавить, false - если не получилось</returns>
-	
+	bool addAll(int index, ArrayList& list);
+
 	/// <summary>
 	/// удалить все элементы из списка
 	/// </summary>
@@ -70,6 +69,14 @@ void deleteArray(int* arr);
 	int get(int index);
 
 	/// <summary>
+	/// Установить значение элемента, находящегося на месте index.
+	/// </summary>
+	/// <param name="index">индекс изменяемого элемента</param>
+	/// <param name="element">новое значение</param>
+	/// <returns>true, если индекс был корректен, false - если индекс был некорректен</returns>
+	bool set(int index, int element);
+
+	/// <summary>
 	/// поиск элемента в списке
 	/// </summary>
 	/// <param name="element">искомый элемент</param>
@@ -83,9 +90,10 @@ void deleteArray(int* arr);
 	bool isEmpty();
 
 	/// <summary>
-	/// Вывод списка в формате [count/capacity] {el1, el2, el3, ...}
+	/// Преобразовать массив в строку вида [count/capacity] {el1, el2, el3, ...}
 	/// </summary>
-	void print(int *arr);
+	/// <returns>соответствующую строку</returns>
+	char* toString();
 
 	/// <summary>
 	/// удаление элемента из списка
@@ -100,9 +108,11 @@ void deleteArray(int* arr);
 	/// <param name="index1">индекс первого элемента</param>
 	/// <param name="index2">индекс второго элемента</param>
 	/// <returns>true - все прошло хорошо, false - возникли проблемы</returns>
-	int swap(int index1, int index2);
+	bool swap(int index1, int index2);
 
-	bool addtoindex(int element, int index, int* data, int count);
-
-	void processChoice(int choice); 
+	/// <summary>
+	/// Количество элементов в массиве
+	/// </summary>
+	/// <returns>поле count</returns>
+	int length();
 };
