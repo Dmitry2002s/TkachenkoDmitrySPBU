@@ -1,18 +1,17 @@
-#include "header.h"
+#include "ArrayList.h"
 
 
 ArrayList::~ArrayList()
 {
-	delete[] data; 
+	delete[] str; 
 }
 
 void ArrayList::expand()
 {
 	int* p = new int[capacity * 2];
-	for (int i = 0; i < count, i++;)
+	for (int i = 0; i < count; i++)
 	{
 		p[i] = data[i];
-
 	}
 	delete[] data; 
 	data = p; 
@@ -20,10 +19,20 @@ void ArrayList::expand()
 
 int ArrayList::numLength(int number)
 {
+	
 	int length = 1; 
 	if (number > 9)
 	{
 		number /= 10; 
+		length++; 
+	}
+	if (number < 0)
+	{
+		length = 2;
+	}
+	if (number < -9)
+	{
+		number /= 10;
 		length++; 
 	}
 	return length;
@@ -38,13 +47,23 @@ void ArrayList::addSymbolToStr(int& index, char symbol)
 void ArrayList::addNumberToStr(int& index, int number)
 {
 	int length = numLength(number); 
-
-	for (int i = 0; i < length, i++;)
+	if (number < 0)
 	{
 		int digit = number % 10;
-		str[index + length - i - 1] = '0' + digit;
-		number /= 10;
+
+		int a = 0;
+		str[index - 1] = '-' + digit;;
+		index++; 
+		number = digit * (-1); 
 	}
+	for (int i = 0; i < length; i++)
+	{
+		int digit = number % 10;
+
+			str[index + length - i - 1] = '0' + digit;
+			number /= 10;
+	}
+	
 	index++; 
 
 }
@@ -71,7 +90,7 @@ bool ArrayList::add(int index, int element)
 
 bool ArrayList::addAll(ArrayList& list)
 {
-	for (int i = 0; i < count, i++;)
+	for (int i = 0; i < count; i++)
 	{
 		add(list.data[i]);
 	}
@@ -80,9 +99,10 @@ bool ArrayList::addAll(ArrayList& list)
 
 bool ArrayList::addAll(int index, ArrayList& list)
 {
-	for (int i = 0; i < count, i++;)
+	for (int i = 0; i < count; i++)
 	{
 		add(index,list.data[i]);
+		index++; 
 	}
 	
 	return false;
@@ -95,18 +115,20 @@ void ArrayList::clear()
 
 bool ArrayList::contains(int element)
 {
-	for (int i = 0; i < count, i++;)
+	int p = 0; 
+	for (int i = 0; i < count;i++)
 	{
 		if (element == data[i])
 		{
-			return true;
+			p++     ;
 		}
-		else
-		{
-			return false; 
-		}
+		
 	}
-
+	if (p > 0)
+	{
+		return true;
+	}
+		return false; 
 	
 }
 bool indexincorrect(int count, int index)
@@ -115,10 +137,11 @@ bool indexincorrect(int count, int index)
 }
 int ArrayList::get(int index)
 {
-	if (indexincorrect)
+	if (indexincorrect(count, index))
 	{
 		return -1; 
 	}
+	
 	return data[index];
 }
 
@@ -135,7 +158,7 @@ bool ArrayList::set(int index, int element)
 
 int ArrayList::indexOf(int element)
 {
-	for (int i = 0; i < count, i++;)
+	for (int i = 0; i < count; i++)
 	{
 		if (data[i] == element)
 		{
@@ -143,7 +166,7 @@ int ArrayList::indexOf(int element)
 		}
 
 	}
-	return 0;
+	return -1;
 }
 
 bool ArrayList::isEmpty()
@@ -200,9 +223,9 @@ bool ArrayList::remove(int index)
 bool ArrayList::swap(int index1, int index2)
 {
 	int p = 0; 
-	p = index1; 
-	index1 = index2; 
-	index2 = p; 
+	p = data[index1]; 
+	data[index1] = data[index2];
+	data[index2] = p;
 	return false;
 }
 

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "header.h"
-
+#include "ArrayList.h"
+#include <clocale>
 using namespace std;
 
 void processChoice(ArrayList& a, int choice)
@@ -65,7 +65,7 @@ void processChoice(ArrayList& a, int choice)
 	{
 
 		int b = a.length(); 
-		for (int i = 0; i < b, i++;)
+		for (int i = 0; i < b; i++)
 		{
 			if (a.get(i)<0)
 			{
@@ -74,22 +74,28 @@ void processChoice(ArrayList& a, int choice)
 			}
 		}
 	}
-	break;
-	case 6:
-	{
-		
-	}
-	break;
-	case 7:
-	{
 	
-	}
 	break;
 	}
 }
+void printmenu()
+{
+	cout << "ћеню" << endl; 
 
+	cout << "1-ƒобавить в список 10 случайных положительных двузначных чисел и вывести список" << endl;
+	cout << "2-ƒобавить в список 10 случайных отрицательных двузначных чисел и вывести список" << endl;
+	cout << "3-ѕомен€ть местами первый минимальный и последний максимальный элемент и вывести список" << endl;
+	cout << "4-ѕеремешать все элементы массива и вывести массив." << endl;
+	cout << "5-«аменить каждый отрицательный элемент массива на 0." << endl;
+
+}
 int main()
 {
+	setlocale(LC_ALL, "Russian");
 	ArrayList a; 
+	printmenu();
+	int x = 0; 
+	cin >> x; 
+	processChoice(a, x); 
 	return EXIT_SUCCESS;
 }
