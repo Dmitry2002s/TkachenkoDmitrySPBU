@@ -1,5 +1,4 @@
-﻿#pragma once
-class ArrayList
+﻿class ArrayList
 {
 private:
 	int count;
@@ -8,7 +7,7 @@ private:
 	char* str;
 
 public:
-	ArrayList(int capacity = 10) :count(0), capacity(capacity), data(new int[capacity]), str(nullptr) {};
+	ArrayList(int capacity = 10) :count(0), capacity(capacity), data(new int[capacity]), str(nullptr) {}
 	ArrayList(const ArrayList& list);
 	~ArrayList();
 
@@ -67,7 +66,7 @@ public:
 	/// <param name="index">èíäåêñ çàïðàøèâàåìîãî ýëåìåíòà</param>
 	/// <returns>data[index], åñëè èíäåêñ êîððåêòåí, -1 - åñëè èíäåêñ íåêîððåêòåí</returns>
 	int get(int index);
-	;
+
 	/// <summary>
 	/// Óñòàíîâèòü çíà÷åíèå ýëåìåíòà, íàõîäÿùåãîñÿ íà ìåñòå index.
 	/// </summary>
@@ -75,33 +74,33 @@ public:
 	/// <param name="element">íîâîå çíà÷åíèå</param>
 	/// <returns>true, åñëè èíäåêñ áûë êîððåêòåí, false - åñëè èíäåêñ áûë íåêîððåêòåí</returns>
 	bool set(int index, int element);
-	;
+
 	/// <summary>
 	/// ïîèñê ýëåìåíòà â ñïèñêå
 	/// </summary>
 	/// <param name="element">èñêîìûé ýëåìåíò</param>
 	/// <returns>èíäåêñ ýëåìåíòà, åñëè îí íàéäåí, -1 - åñëè íå íàéäåí</returns>
 	int indexOf(int element);
-	;
+
 	/// <summary>
 	/// ïðîâåðêà ñïèñêà íà ïóñòîòó
 	/// </summary>
 	/// <returns>true - åñëè ñïèñîê ïóñò, false - åñëè åñòü õîòÿ áû 1 ýëåìåíò</returns>
 	bool isEmpty();
-	;
+
 	/// <summary>
 	/// Ïðåîáðàçîâàòü ìàññèâ â ñòðîêó âèäà [count/capacity] {el1, el2, el3, ...}
 	/// </summary>
 	/// <returns>ñîîòâåòñòâóþùóþ ñòðîêó</returns>
 	char* toString();
-	;
+
 	/// <summary>
 	/// óäàëåíèå ýëåìåíòà èç ñïèñêà
 	/// </summary>
 	/// <param name="index">èíäåêñ óäàëÿåìîãî ýëåìåíòà</param>
 	/// <returns>true - âñå ïðîøëî õîðîøî, false - âîçíèêëè ïðîáëåìû</returns>
 	bool remove(int index);
-	;
+
 	/// <summary>
 	/// ïîìåíÿòü ìåñòàìè ýëåìåíòû
 	/// </summary>
@@ -109,10 +108,10 @@ public:
 	/// <param name="index2">èíäåêñ âòîðîãî ýëåìåíòà</param>
 	/// <returns>true - âñå ïðîøëî õîðîøî, false - âîçíèêëè ïðîáëåìû</returns>
 	bool swap(int index1, int index2);
-	;
+
 	/// <summary>
 	/// Êîëè÷åñòâî ýëåìåíòîâ â ìàññèâå
 	/// </summary>
 	/// <returns>ïîëå count</returns>
 	int length();
-	}
+};
