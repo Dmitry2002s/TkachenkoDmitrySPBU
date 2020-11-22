@@ -164,5 +164,4 @@ public:
 	/// </summary>
 	friend std::ostream& operator<<(std::ostream& stream, const ArrayList& list);
 
-	int& operator[](int index);
 };

@@ -359,6 +359,10 @@ ArrayList operator-(const ArrayList& list, int item)
 			index = i;
 		}
 	}
+	if (index == -1)
+	{
+		return ArrayList(); 
+	}
 	ArrayList result(list);
 	result.remove(index);
 	return ArrayList();

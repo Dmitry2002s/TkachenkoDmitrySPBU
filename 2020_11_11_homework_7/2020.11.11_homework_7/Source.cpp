@@ -25,6 +25,11 @@ int main()
 	cout << "list2 = " << list2 << endl;
 	cout << "list3 = " << list3 << endl;
 	cout << endl;
+	cout << list2 - 2 <<endl ; 
+	cout << 20 - list2 << endl;
+	cout << "list 2 =" << list2 << endl;
+	list2 -= 18; list2 -= 15; list2 -= 14; list2 -= 13; list2 -= 12;
+	cout << "list 2 =" << list2 << endl; 
 	//è òàê äàëåå
 
 	return 0;
