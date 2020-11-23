@@ -215,7 +215,12 @@ int& LinkedList::operator[](int index)
 
 int LinkedList::extractHead()
 {
+	if (head == nullptr)
+	{
 	
+	return 0;
+}
+
 	Node* temp = head;
 	head = temp->next;
 	delete temp;
@@ -234,7 +239,7 @@ int LinkedList::extractTail()
 	tail = node; 
 	delete temp->next;
 	temp->next = nullptr;
-	return false; 
+	return temp->data;
 }
 
 int LinkedList::extract(int index)
@@ -275,14 +280,21 @@ void LinkedList::operator-=(int index)
 
 LinkedList& LinkedList::operator=(LinkedList list1 )
 {
-	Node* temp = head; 
-	for (int i = 0; i < list1.length(); i++)
+	for (int i =0; i < length();)
+	{
+		extractHead();
+	}
+	head = nullptr;
+	tail = nullptr;
+	Node* temp = list1.head; 
+	for (int i = 0; i < list1.length();i++)
 	{
 		
 		int p = temp->data;
-		addToTail(i);
+		addToTail(p);
 		temp = temp->next; 
 	}
+	
 	// TODO: вставьте здесь оператор return
 	return list1; 
 }

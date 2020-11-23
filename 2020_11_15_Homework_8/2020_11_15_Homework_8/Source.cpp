@@ -66,11 +66,12 @@ int main()
 	list1.addToHead(13);
 	list1.addToHead(24);
 		cout << "list1" << list1 << endl; 
-		cout << "list1 =list2" << endl;
+		cout << "list =list1" << endl;
 	list = list1;
+	cout << list << endl;
 	cout << "list " << list << endl; 
 	cout << "list1" << list1 << endl; 
-	cout << list << endl;
+	
 	cout << "Добавление в list кучи элементов " << endl; 
 	for (int i = 0; i < 10; i++)
 	{
