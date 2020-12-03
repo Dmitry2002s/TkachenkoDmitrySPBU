@@ -220,6 +220,12 @@ int LinkedList::extractHead()
 	
 	return 0;
 }
+	if (head == tail)
+	{
+		head = nullptr;
+		tail = nullptr; 
+		return 0; 
+	}
 	
 	Node* temp = head;
 
