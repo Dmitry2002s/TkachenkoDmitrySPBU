@@ -220,17 +220,23 @@ int LinkedList::extractHead()
 	
 	return 0;
 }
-
+	
 	Node* temp = head;
+
 	head = temp->next;
 	delete temp;
-
 	return 0;
 }
 
 int LinkedList::extractTail()
 {
+	
 	Node* temp = head;
+	if (head == tail)
+	{
+		extractHead();
+		return 0;
+	}
 	for (int i = 0; i < length() - 2; i++)
 	{
 		temp = temp->next;
@@ -240,6 +246,7 @@ int LinkedList::extractTail()
 	delete temp->next;
 	temp->next = nullptr;
 	return temp->data;
+
 }
 
 int LinkedList::extract(int index)

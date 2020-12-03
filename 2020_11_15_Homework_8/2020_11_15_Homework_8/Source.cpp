@@ -86,7 +86,11 @@ int main()
 	list.swap(0, 9);
 	cout << list; 
 	///Разобрать хлам.  
-
+	LinkedList dop; 
+	dop.addToHead(1);
+	cout <<endl << dop << endl; 
+	dop.extractTail();
+	cout << dop << endl; 
 
 	return 0; 
 } 
