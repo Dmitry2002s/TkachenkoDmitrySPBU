@@ -222,6 +222,7 @@ int LinkedList::extractHead()
 }
 	if (head == tail)
 	{
+		delete head; 
 		head = nullptr;
 		tail = nullptr; 
 		return 0; 

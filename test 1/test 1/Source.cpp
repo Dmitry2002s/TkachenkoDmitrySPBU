@@ -199,7 +199,7 @@ int kait()
 {
 	
 	string str; 
-	cout << "число (Будет округлено до 6-ти знаков после запятой = ";
+	cout << "число (Будет округлено до 6-ти знаков после запятой) = ";
 	getline(cin, str);
 	trim(str);
 	if (check(str) != 0)
@@ -244,7 +244,7 @@ int kait()
 	
 	
 	cout << "результат = "  <<MyFunction(x, n) << endl;
-
+	
 
 		;
 }
