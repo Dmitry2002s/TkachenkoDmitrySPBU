@@ -199,7 +199,7 @@ int kait()
 {
 	
 	string str; 
-	cout << "число = ";
+	cout << "число (Будет округлено до 6-ти знаков после запятой = ";
 	getline(cin, str);
 	trim(str);
 	if (check(str) != 0)
