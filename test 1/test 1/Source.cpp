@@ -76,7 +76,7 @@ int checklength(string& str)
 {
 	if (length(str) > 9)
 	{
-		return 2;
+		return 0;
 	}
 	return 0;
 }
@@ -119,10 +119,7 @@ int check(string& str)
 		}
 	}
 
-	if (checklength(str) == 2)
-	{
-		return 2;
-	}
+	
 	if (str[0] == 0)
 	{
 		return 5;
@@ -201,8 +198,7 @@ int znak(int k)
 int kait()
 {
 	
-	string str;
-
+	string str; 
 	cout << "число = ";
 	getline(cin, str);
 	trim(str);
@@ -213,6 +209,7 @@ int kait()
 	}
 	
 	double x = StringToDouble(str) / znak(cbc(str));
+	
 	if (str[0] == '-')
 	{
 		x = x - 2;;
@@ -232,9 +229,14 @@ int kait()
 	
 	cout <<"число"<< x << endl; 
 	double xn = 0;
-	cout << "Число знаков после запятой" << endl; 
+	cout << "Введите число ( будет округлено до ближайшего целого ) " << endl; 
 	int  n= 0;
 	cin >> n; 
+	if (n % 1 != 0)
+	{
+		return -1;
+	}
+	cout << n;
 	if (n < 0)
 	{
 		return -1;
