@@ -7,10 +7,21 @@ using namespace std;
 
 void trim(string& str)
 {
+	int p = 0; 
 	int SI = 0;
+	int l = 0; 
 	while (str[SI] == ' ')
 	{
 		SI++;
+	}
+	if (p==0)
+	{
+		if (str[SI] == '0');
+		{
+			l++;
+
+		}
+		
 	}
 	str = str.substr(SI);
 }
@@ -187,31 +198,69 @@ int znak(int k)
 	}
 	return p; 
 }
-int main()
+int kait()
 {
+	
 	string str;
-	int n = 0;
+
+	cout << "число = ";
 	getline(cin, str);
 	trim(str);
 	if (check(str) != 0)
 	{
 		cout << "Ошибка" << endl;
-		return 1;
+		return -1;
 	}
-	double x = StringToDouble(str) / znak(cbc(str));
 	
+	double x = StringToDouble(str) / znak(cbc(str));
 	if (str[0] == '-')
 	{
 		x = x - 2;;
 	}
-	cout << x;
-	double xn = 0;
-
-	cin >> n;
-	double p = 0;
 	
-	cout << MyFunction(x, n) << endl;
+	if (x < -1 || x>1)
+	{
+		if (x == -3)
+		{
+			x = -1; 
+	}
+		else {
+			return -1;
+		}
+
+	}
+	
+	cout <<"число"<< x << endl; 
+	double xn = 0;
+	cout << "Число знаков после запятой" << endl; 
+	int  n= 0;
+	cin >> n; 
+	if (n < 0)
+	{
+		return -1;
+	}
+	
+	
+	cout << "результат = "  <<MyFunction(x, n) << endl;
 
 
 		;
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	
+	int p = 0; 
+	while (p == 0) {
+		if (kait() != -1)
+		{
+			cout << "great" << endl;
+			p++;
+			return 0;
+		}
+		else
+		{
+			cout << "Введите число из разрешённых [-1;1]" << endl; 
+		}
+	}
 }
