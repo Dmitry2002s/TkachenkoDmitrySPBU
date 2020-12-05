@@ -232,7 +232,7 @@ int LinkedList::extractHead()
 
 	head = temp->next;
 	delete temp;
-	return 0;
+	return head->data;
 }
 
 int LinkedList::extractTail()
@@ -265,13 +265,13 @@ int LinkedList::extract(int index)
 	
 	if (index == 0)
 	{
-		extractHead();
-		return false; 
+		
+		return extractHead();;
 	}
 	if (index == length() - 1)
 	{
-		extractTail();
-		return false; 
+	
+		return 	extractTail();
 	}
 	else
 	{
@@ -281,10 +281,16 @@ int LinkedList::extract(int index)
 			temp = temp->next;
 		}
 		Node* node = temp->next; 
-		temp->next = temp->next->next; 
-		delete node; 
+		temp->next = temp->next->next; //ÏÅĞÅÏĞÎÂÅĞÈÒÜ ÂÎÇÂĞÀÒ İËÅìåÍÒÀ 
+
+		int result = temp->next->next->data; 
+
+		delete node;
+
+		return result;
+
 	}
-	return 0;
+	
 }
 
 void LinkedList::operator-=(int index)
