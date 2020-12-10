@@ -110,11 +110,19 @@ bool ArrayList::add(int element)
 
 bool ArrayList::add(int index, int element)
 {
-
+	if (!indexValid(index))
+	{
+		return false;
+	}
 	if (count == capacity)
 	{
 		expand();
 	}
+	if (index == count)
+	{
+		return add(element);
+	}
+
 	if (index < count)
 	{
 		for (int i = count + index; i > index; i--)
@@ -130,16 +138,16 @@ bool ArrayList::add(int index, int element)
 
 bool ArrayList::addAll(ArrayList& list)
 {
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < list.count; i++)
 	{
 		add(list.data[i]);
 	}
-	return false;
+	return true;
 }
 
 bool ArrayList::addAll(int index, ArrayList& list)
 {
-	for (int i = 0; i < count; i++)
+	for (int i = list.count-1; i >= 0; i--)
 	{
 		add(index, list.data[i]);
 	}
@@ -182,10 +190,13 @@ int ArrayList::get(int index)
 
 bool ArrayList::set(int index, int element)
 {
-
+	if (index >= count)
+	{
+		return false; 
+	}
 	data[index] = element;
 
-	return false;
+	return true;
 }
 
 int ArrayList::indexOf(int element)
@@ -204,7 +215,7 @@ int ArrayList::indexOf(int element)
 bool ArrayList::isEmpty()
 {
 
-	if (count > 0)
+	if (count == 0)
 	{
 		return false;
 	}
@@ -285,14 +296,16 @@ void ArrayList::operator+=(int item)
 
 void ArrayList::operator-=(int item)
 {
-	for (int i = count; i > 0; i--)
-	{
-		if (data[i] == item)
+
+	if (contains(item))
+	{for (int i = count; i > 0; i--)
 		{
-			remove(i); 
+			if (data[i] == item)
+			{
+				remove(i);
+			}
 		}
 	}
-
 }
 
 ArrayList& ArrayList::operator=(const ArrayList& list)
