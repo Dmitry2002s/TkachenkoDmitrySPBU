@@ -47,10 +47,7 @@ double StringToDouble(string& str)
 		}
 		else result = result * 10 + str[i] - '0';
 	}
-	
 		return result;
-	
-	
 } 
 int length(int element)
 {
@@ -166,12 +163,7 @@ bool error(int element)
 		cout << "Код ошибки - " << element << endl;
 		return false;
 	}
-	/*if (element == 5)
-	{
-		cout << "Число не должно начинаться с нуля" << endl;
-		cout << "Код ошибки - " << element << endl;
-		return false;
-	}*/
+	
 }
 bool printmenu()
 {
@@ -306,10 +298,8 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	printmenu();
-	while (error(Summ()) == false)
+	while (!error(Summ()))
 	{
 		cout<<"перезапуск программы" <<endl; 
 	}
-	;
-	;
 }
