@@ -27,7 +27,7 @@ bool printMatrix(int** matrix, int p)
 	{
 		for (int j = 0; j < p; j++)
 		{
-			printf("%3d", matrix[i][j]);
+			printf("%4d", matrix[i][j]);
 		}
 		cout << endl; 
 	}
@@ -100,51 +100,119 @@ bool question4(int** matrix, int p)
 	}
 	return true;
 }
+bool check(int k, int m, int** matrix)
+{
+	if (matrix[k][m] == 0)
+	{
+		return true; 
+	}
+	return false; 
+
+}
 bool question5(int** matrix, int p)
 {
 
-	int m = 0;
-	int k = 0;
-	int s = 1;
-	int g = p;
-	int i = 0; 
-	int a = 0;
-	for (int p = 0; p < 2; p++) {
-		for (; k < p; k++)
-		{
-			matrix[i + a][k + a] = s;
-			s++;
-		}
-		k--;
-		for (; i < p; i++)
-		{
-			matrix[i + a][k + a] = s;
-			s++;
-		};
-	
-		i--;
-
-		for (; k >= 0; k--)
-		{
-			matrix[i - a][k - a] = s;
-			s++;
-		}
-		k++;
-		for (int i = p - 2; i > 0; i--)
-		{
-			matrix[i - a][k - a] = s;
-			s++;
-		}
-		a++;
-		i = p - i;
-		p--;
-		//2 цикл 
+	int k = 0; 
+	int m = 0; 
+	int s = 1; 
+	int q = p; 
+	int l = p * p+1; 
+	for (int i = 0; i < q - 1;++i)
+	{
+		matrix[k][m] = s;
+		m++;
+		s++;
 	}
+	for (int i = 0; i < q - 1;i++)
+	{
+		matrix[k][m] = s;
+		k++;
+		s++;
+	}
+	for (int i = 0; i < q - 1;i++)
+	{
+
+		matrix[k][m] = s;
+		m--;
+		s++;
+
+	}
+	;
+	for (int i = 0; i < q - 1;i++)
+	{
+
+		matrix[k][m] = s;
+		k--;
+		s++;
+	}
+	k = 1; 
+	q--;
+	for (int b=0; b < 6; b++)
+	{
+		
+		for (int i = 0; i < q - 1;++i)
+		{
+			
+			m++;
+			matrix[k][m] = s;
+			s++;
+			if (s > l)
+			{
+				return false;
+			}
+			
+		}
+		q--;
+		for (int i = 0; i < q - 1;i++)
+		{
+			
+			k++;
+			matrix[k][m] = s;
+			s++;
+			if (s > l)
+			{
+				return false;
+			}
+		}
+		
+		for (int i = 0; i < q - 1;i++)
+		{
+
+			
+
+			m--;
+			matrix[k][m] = s;
+			s++;
+			if (s > l)
+			{
+				return false;
+			}
+		}
+		q--;
+		for (int i = 0; i < q - 1;i++)
+		{
+
+			
+			k--;
+			matrix[k][m] = s;
+			s++;
+			if (s > l)
+			{
+				return false;
+			}
+		}
 		
 		
+	}
+	 ///   //////  / / / // 
 	
 	return true;
 }
+		
+		
+	
+	
+
 
 int main()
 {
@@ -167,7 +235,7 @@ int main()
 		p = initMatrix(f);
 	question5(p, n);
     printMatrix(p, n);
-	 freeMatrix(p, n);
+freeMatrix(p, n);
  
 	cout <<"Пау " <<n; 
 ;
