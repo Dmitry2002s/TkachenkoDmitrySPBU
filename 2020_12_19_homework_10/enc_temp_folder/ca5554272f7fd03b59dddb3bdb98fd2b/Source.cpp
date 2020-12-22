@@ -123,7 +123,6 @@ bool question5(int** matrix, int p)
 		};
 	
 		i--;
-
 		for (; k >= 0; k--)
 		{
 			matrix[i - a][k - a] = s;
