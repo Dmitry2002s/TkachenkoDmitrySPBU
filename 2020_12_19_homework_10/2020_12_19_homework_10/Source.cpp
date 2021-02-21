@@ -48,23 +48,7 @@ bool question1(int** matrix, int p)
 	}
 	return true; 
 }
-bool questionMe(int** matrix, int p)
-{
-	int k = 1;
-	int m = 0;
-	for (int i = 0; i < p; i++)
-	{
-	
-		for (int j = 0; j < p; j++)
-		{
 
-			matrix[i][j] = m;
-			m++;
-		}
-		k++;
-	}
-	return true;
-}
 bool question2(int** matrix, int p)
 {
 	int k = 2*p-1;
@@ -240,7 +224,7 @@ int main()
 	 const int f = n; 
 	 int** p = initMatrix(f); 
 	 printMatrix(p, n);
-	 questionMe(p, n);
+	 question1(p, n);
 		 printMatrix(p, n);
 		 question2(p, n);
 		 printMatrix(p, n);
