@@ -62,19 +62,36 @@ double sum(string str)// summ elements string
 {
 	int i = 0; 
 	double k = 0; 
-	double p = 0; 
+	double p = 0;
+	int znak = 0; 
 	while (str[i] != '\0')
 	{
 		if (str[i] == ',')
 		{
+			if (znak == 1)
+			{
+				p = -1 * p;
+				znak = 0; 
+			}
 			k = k + p;
 			p = 0;
 		}
+		else if (str[i] == '-')
+		{
+			znak = 1; 
+			p = 0; 
+		}
 		else {
 			p = p * 10;
-			p = p + str[i] - '0';
+		p = p + str[i] - '0';
 		}
-		i++;
+		i++
+;
+	}
+	if (znak == 1)
+	{
+		p = -1 * p;
+		znak = 0;
 	}
 	k = k + p;
 	return k; 
