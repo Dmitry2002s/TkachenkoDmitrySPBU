@@ -119,5 +119,6 @@ int main()
 		cout << "кол-во элементов строки = " << quantity(str) << endl;
 		cout << "Сумма элементов строки = " << sum(str) << endl; ;
 		cout << "Среднее арифметическое элементов строки = " << sum(str) / quantity(str) << endl; 
+		cout << "Тест отрицательных чисел " << average (3, 2, 1, -1) << endl; 
 	return 0; 
 }
