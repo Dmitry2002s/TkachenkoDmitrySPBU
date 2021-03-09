@@ -3,9 +3,9 @@
 using namespace std;
 int k = 0;
 template <typename T1, typename T2>
-T1 number1(T1 a,T2 b)
+T1 number1(T1 a, T2 b)
 {
-	T1 c; 
+	T1 c;
 	operation(a, b) = c;
 	return c;
 }
@@ -53,10 +53,10 @@ T1 operation(T1 a, T2 b)
 	cout << "select an action (+,-,*,/,%)" << endl;
 
 	cin >> i;
-	cout << "enter a number1 " << endl; 
-	cin >> a; 
+	cout << "enter a number1 " << endl;
+	cin >> a;
 	cout << "enter a number2 " << endl;
-	cin >> b; 
+	cin >> b;
 	int k = index(i);
 
 	cout << "index operation= " << k << endl; ;
@@ -74,7 +74,15 @@ T1 operation(T1 a, T2 b)
 	}
 	if (k == 4)
 	{
-		return (a % b);
+		int a1 = a; 
+		int c = 0; 
+		while ((a - b) >= 0)
+		{
+			a = a - b;
+			c++; 
+		}
+		cout << "Remains = " << a << endl; 
+		return (c);
 	}
 	if (k == 5)
 	{
@@ -82,14 +90,14 @@ T1 operation(T1 a, T2 b)
 	}
 	if (k == 0)
 	{
-		cout << "Error - action selected incorrectly" << endl; 
-		return 0; 
+		cout << "Error - action selected incorrectly" << endl;
+		return 0;
 	}
 	return a;
 }
 
 int main()
 {
-	cout << "it is resultat   = " <<operation(954, 3);
+	cout << "it is resultat   = " << operation(954.0, 3.0);
 	return 0;
 }
