@@ -1,57 +1,56 @@
 #include<iostream>
 
 using namespace std;
-int k = 0;
-template <typename T1, typename T2>
-T1 number1(T1 a, T2 b)
-{
-	T1 c;
-	operation(a, b) = c;
-	return c;
-}
 int index(char i)
 {
 	int k = 0;
-	switch (i)
-	{
-	default:
-		return k = 0;
-		cout << "lol , you are durak" << endl;
-		break;
-	case '+':
-	{
-		return k = 1;
-	}
-	case '-':
-	{
-		return k = 2;
-
-	}
-	case '/':
-	{
-		return k = 3;
-
-	}
-	case '%':
-	{
-		return k = 4;
-
-	}
-	case '*':
-	{
-		return k = 5;
-
-	}
-
+	switch (i){
+	case '+':return k = 1;
+	case '-':return k = 2;
+	case '/':return k = 3;
+	case '%':return k = 4;
+	case '*':return k = 5;
+	default:return k = 0;
 	break;
 	}
+}
+template <typename T1, typename T2>
+T1 rem(T1 a, T2 b)
+{
+	int c = 0;
+	while ((a - b) >= 0)
+	{
+		a = a - b;
+		c++;
+	}
+	cout << "Remains = " << a << endl;
+	return (c);
+}
+template <typename T1, typename T2>
+T1 diff(T1 a, T2 b)
+{
+	return a - b;
+}
+template <typename T1, typename T2>
+T1 div(T1 a, T2 b)
+{
+	return a / b;
+}
+template <typename T1, typename T2>
+T1 mult(T1 a, T2 b)
+{
+	return a * b;
+}
+template <typename T1, typename T2>
+T1 summ(T1 a, T2 b)
+{
+	return a + b;
 }
 template <typename T1, typename T2>
 T1 operation(T1 a, T2 b)
 {
 	char i;
 	cout << "select an action (+,-,*,/,%)" << endl;
-
 	cin >> i;
 	cout << "enter a number1 " << endl;
 	cin >> a;
@@ -62,39 +61,32 @@ T1 operation(T1 a, T2 b)
 	cout << "index operation= " << k << endl; ;
 	if (k == 1)
 	{
-		return (a + b);
-	}
-	if (k == 2)
+		return summ(a, b);
+};
+	if (k == 2) 
 	{
-		return (a - b);
-	}
-	if (k == 3)
+		return diff(a, b);
+	};
+	if (k == 3) 
 	{
-		return (a / b);
-	}
-	if (k == 4)
-	{
-		int a1 = a; 
-		int c = 0; 
-		while ((a - b) >= 0)
-		{
-			a = a - b;
-			c++; 
-		}
-		cout << "Remains = " << a << endl; 
-		return (c);
-	}
+		return div(a, b);
+};
+	if (k == 4) 
+	{ 
+		return rem(a, b);
+	};
+
 	if (k == 5)
 	{
-		return (a * b);
-	}
+		return mult(a, b);
+	};
 	if (k == 0)
 	{
 		cout << "Error - action selected incorrectly" << endl;
-		return 0;
 	}
-	return a;
+	return 0;
 }
+
 
 int main()
 {
