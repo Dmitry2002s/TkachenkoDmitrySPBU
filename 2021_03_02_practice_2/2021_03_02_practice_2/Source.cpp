@@ -1,17 +1,18 @@
-#include<iostream>
+﻿#include<iostream>
+#include<string>
 
 using namespace std;
 int index(char i)
 {
 	int k = 0;
-	switch (i){
+	switch (i) {
 	case '+':return k = 0;
 	case '-':return k = 1;
 	case '/':return k = 2;
 	case '%':return k = 3;
 	case '*':return k = 4;
 	default:return k = -1;
-	break;
+		break;
 	}
 }
 template <typename T1, typename T2>
@@ -47,25 +48,38 @@ T1 summ(T1 a, T2 b)
 	return a + b;
 }
 template <typename T1, typename T2>
-T1 calculate(T1 a, T2 b)
+T1 calculate(T1 a, T2 b, char op)
 {
-	char i;
-	cout << "select an action (+,-,*,/,%)" << endl;
-	cin >> i;
-	cout << "enter a number1 " << endl;
-	cin >> a;
-	cout << "enter a number2 " << endl;
-	cin >> b;
-	int k = index(i);
-
-	cout << "index operation= " << k << endl; 
 	T1(*operation[5])(T1, T2) { summ, diff, div, rem, mult };
-	return operation[index(i)](a, b);
+	return operation[index(op)](a, b);
 }
+bool isInt(string str)
+{return str.find('.') == -1;}
 
+bool isDouble(string str)
+{return str.find('.') != -1;}
 
-int main()
+int main(int argc , char* argv[])
 {
-	cout << "it is resultat   = " << calculate(954.0, 3.0);
+	
+	string  op; 
+	string op1;
+	string op2;
+	if (strcmp(argv[1], "--operator") == 0) 
+	{
+		op = argv[2]; op1 = argv[4]; op2 = argv[6];
+	}
+	if (strcmp(argv[3], "--operator") == 0)
+	{
+		op = argv[4]; op1 = argv[2]; op2 = argv[6];
+	}
+	if (strcmp(argv[5], "--operator") == 0)
+	{
+		op = argv[6]; op1 = argv[4]; op2 = argv[2];
+	}
+	cout << op1 << " ";
+	cout << op << " ";
+	cout << op2 << " = ";
+cout  << calculate(stod(op1), stod(op2),op[0]);
 	return 0;
 }
