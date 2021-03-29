@@ -50,7 +50,7 @@ int main()
 }
 bool isSign(char c)
 {
-	return c == '+' || c == '-'||c=='\'' || c=='*' ;
+	return c == '+' || c == '-';
 }
 bool isDigit(char c)
 {
@@ -148,9 +148,14 @@ bool isterm(string str, int& index)
 	{
 		return true; 
 	}
- 
-	if (ismultiplier(str, index) || isSign( str[index]))
+	if (str[index] == '*')
 	{
 		return isterm(str, ++index);
 	}
+	if (!ismultiplier(str, index) )
+	{
+		return false ;
+	}
+	
+	return isterm(str, index);
 }
