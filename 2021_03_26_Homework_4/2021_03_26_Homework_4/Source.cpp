@@ -108,16 +108,16 @@ int main()
 	delete[] q; 
 
 	cout << "Test with array length = 100000" << endl;
-	int* z = new int[1000];
-	fillArray(z,1000);
+	int* z = new int[100000];
+	fillArray(z,100000);
 	cout << "bubble sort" << endl;
-	bubbleSort(z, 1000);
-	mixArray(z, 1000);
+	bubbleSort(z, 100000);
+	mixArray(z, 100000);
 	cout << "insertion sort" << endl;
-	insertionSort(z, 1000);
-	mixArray(z, 1000);
+	insertionSort(z, 100000);
+	mixArray(z, 100000);
 	cout << "selection sort" << endl;
-	selectionSort(z, 1000);
+	selectionSort(z, 100000);
 	delete[] z;
 	return 0; 
 
